@@ -1,39 +1,34 @@
 package datastructure.graph.linkedlist;
 
-import java.util.Stack;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
 
-        // *****************************************************
+        // Adjacency List = An array/arraylist of linked lists.
+        //			          Each LinkedList has a unique node at the head.
+        //			          All adjacent neighbors to that node are added to that node's linkedlist
 
-        // stack = LIFO data structure. Last-In First-Out
-        //               stores objects into a sort of "vertical tower"
-        //		  push() to add objects to the top
-        //		  pop() to remove objects from the top
+        //				  runtime complexity to check an Edge: O(v)
+        //				  space complexity: O(v + e)
 
-        // uses of stacks?
-        // 1. undo/redo features in text editors
-        // 2. moving back/forward through browser history
-        // 3. backtracking algorithms (maze, file directories)
-        // 4. calling functions (call stack)
+        Graph graph = new Graph();
 
-        // *****************************************************
+        graph.addNode(new Node('A'));
+        graph.addNode(new Node('B'));
+        graph.addNode(new Node('C'));
+        graph.addNode(new Node('D'));
+        graph.addNode(new Node('E'));
 
-        Stack<String> stack = new Stack<String>();
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(4, 0);
+        graph.addEdge(4, 2);
 
-        //System.out.println(stack.empty());
+        graph.print();
 
-        stack.push("Minecraft");
-        stack.push("Skyrim");
-        stack.push("DOOM");
-        stack.push("Borderlands");
-        stack.push("FFVII");
-
-        //String myFavGame = stack.pop();
-        //System.out.println(stack.peek());
-        //System.out.println(stack.search("Fallout76"));
-        System.out.println(stack);
-
+        //System.out.println(graph.checkEdge(0, 1));
     }
 }
+
