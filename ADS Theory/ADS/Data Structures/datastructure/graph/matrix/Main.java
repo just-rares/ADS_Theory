@@ -1,39 +1,36 @@
 package datastructure.graph.matrix;
 
-import java.util.Stack;
+import java.util.ArrayList;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        // *****************************************************
+        // Adjacency Matrix = An array to store 1's/0's to represent edges
+        //				       # of rows =    # of unique nodes
+        //				       # of columns = # of unique nodes
 
-        // stack = LIFO data structure. Last-In First-Out
-        //               stores objects into a sort of "vertical tower"
-        //		  push() to add objects to the top
-        //		  pop() to remove objects from the top
+        //					  runtime complexity to check an Edge: O(1)
+        //					  space complexity: O(v^2)
 
-        // uses of stacks?
-        // 1. undo/redo features in text editors
-        // 2. moving back/forward through browser history
-        // 3. backtracking algorithms (maze, file directories)
-        // 4. calling functions (call stack)
+        Graph graph = new Graph(5);
 
-        // *****************************************************
+        graph.addNode(new Node('A'));
+        graph.addNode(new Node('B'));
+        graph.addNode(new Node('C'));
+        graph.addNode(new Node('D'));
+        graph.addNode(new Node('E'));
 
-        Stack<String> stack = new Stack<String>();
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(4, 0);
+        graph.addEdge(4, 2);
 
-        //System.out.println(stack.empty());
+        graph.print();
 
-        stack.push("Minecraft");
-        stack.push("Skyrim");
-        stack.push("DOOM");
-        stack.push("Borderlands");
-        stack.push("FFVII");
-
-        //String myFavGame = stack.pop();
-        //System.out.println(stack.peek());
-        //System.out.println(stack.search("Fallout76"));
-        System.out.println(stack);
-
+        //System.out.println(graph.checkEdge(0, 1));
     }
 }
